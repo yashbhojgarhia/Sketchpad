@@ -6,18 +6,40 @@
 //
 
 import UIKit
+import ChromaColorPicker
 
-class DrawingViewController: UIViewController {
+class DrawingViewController: UIViewController, ChromaColorPickerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
     var lastPoint: CGPoint = CGPoint(x: 0, y: 0)
     var currentColor = UIColor.blue.cgColor
     var brushSize: Float = 30.0
+    var colorPicker: ChromaColorPicker?
+    var grayedOut = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        grayedOut = UIView(frame: view.frame)
+        grayedOut.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        view.addSubview(grayedOut)
+        
+        colorPicker = ChromaColorPicker(frame: CGRect(x: view.frame.size.width / 2 - 100, y: view.frame.size.height / 2 - 100, width: 200, height: 200))
+        if let picker = colorPicker {
+            picker.delegate = self
+            picker.padding = 5
+            picker.stroke = 3
+            picker.hexLabel.isHidden = true
+            view.addSubview(picker)
+        }
+        colorPicker?.isHidden = true
+        grayedOut.isHidden = true
+    }
+    
+    func colorPickerDidChooseColor(_ colorPicker: ChromaColorPicker, color: UIColor) {
+        currentColor = color.cgColor
+        colorPicker.isHidden = true
+        grayedOut.isHidden = true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -27,10 +49,13 @@ class DrawingViewController: UIViewController {
     }
     
     @IBAction func colorTapped(_ sender: Any) {
+        colorPicker?.adjustToColor(UIColor(cgColor: currentColor))
+        colorPicker?.isHidden = false
+        grayedOut.isHidden = false
     }
     
     @IBAction func sizeTapped(_ sender: Any) {
-        let ac = UIAlertController(title: "Brush", message: "\n\n\n\n\n\n\n\n", preferredStyle: .alert)
+        let ac = UIAlertController(title: "Brush", message: "\n\n\n\n\n", preferredStyle: .alert)
         let slider = UISlider(frame: CGRect(x: 10, y: 50, width: 250, height: 80))
         
         slider.minimumValue = 1
