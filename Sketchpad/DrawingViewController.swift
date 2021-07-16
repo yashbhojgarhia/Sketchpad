@@ -11,6 +11,8 @@ class DrawingViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     var lastPoint: CGPoint = CGPoint(x: 0, y: 0)
+    var currentColor = UIColor.blue.cgColor
+    var brushSize: Float = 30.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,33 @@ class DrawingViewController: UIViewController {
         if let beginPoint = touches.first?.location(in: imageView) {
             lastPoint = beginPoint
         }
+    }
+    
+    @IBAction func colorTapped(_ sender: Any) {
+    }
+    
+    @IBAction func sizeTapped(_ sender: Any) {
+        let ac = UIAlertController(title: "Brush", message: "\n\n\n\n\n\n\n\n", preferredStyle: .alert)
+        let slider = UISlider(frame: CGRect(x: 10, y: 50, width: 250, height: 80))
+        
+        slider.minimumValue = 1
+        slider.maximumValue = 100
+        slider.value = brushSize
+        
+        ac.view.addSubview(slider)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { (alert) in
+            self.brushSize = slider.value
+        }
+        ac.addAction(okAction)
+        
+        present(ac, animated: true, completion: nil)
+        
+        
+    }
+    
+    @IBAction func eraseTapped(_ sender: Any) {
+        currentColor = UIColor.white.cgColor
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -43,9 +72,9 @@ class DrawingViewController: UIViewController {
         if let context = UIGraphicsGetCurrentContext() {
             context.move(to: point1)
             context.addLine(to: point2)
-            context.setLineWidth(10)
+            context.setLineWidth(CGFloat(brushSize) / 3.0)
             context.setLineCap(.round)
-            context.setStrokeColor(UIColor.red.cgColor)
+            context.setStrokeColor(currentColor)
             context.strokePath()
             imageView.image = UIGraphicsGetImageFromCurrentImageContext()
         }

@@ -89,6 +89,44 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dx9-fS-McP">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="67c-UN-ySI">
+                                <rect key="frame" x="0.0" y="782" width="414" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koN-rP-zd1">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="HGa-SN-jqh"/>
+                                        </constraints>
+                                        <state key="normal" image="color"/>
+                                        <connections>
+                                            <action selector="colorTapped:" destination="63m-BR-zoA" eventType="touchUpInside" id="opS-vl-Hei"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sob-bD-JMx">
+                                        <rect key="frame" x="167" y="0.0" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="wPZ-7M-fzA"/>
+                                        </constraints>
+                                        <state key="normal" image="size"/>
+                                        <connections>
+                                            <action selector="sizeTapped:" destination="63m-BR-zoA" eventType="touchUpInside" id="6Li-e9-len"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aae-X6-atu">
+                                        <rect key="frame" x="334" y="0.0" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="Ss9-9K-tOc"/>
+                                        </constraints>
+                                        <state key="normal" image="erase"/>
+                                        <connections>
+                                            <action selector="eraseTapped:" destination="63m-BR-zoA" eventType="touchUpInside" id="RrL-u4-Y3D"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="BcE-NG-Fdb"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QoX-Q6-gN7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -96,13 +134,16 @@
                             <constraint firstItem="1lj-qx-icz" firstAttribute="top" secondItem="4Gj-h6-ICh" secondAttribute="top" id="0Zv-u9-kbe"/>
                             <constraint firstItem="QoX-Q6-gN7" firstAttribute="bottom" secondItem="dx9-fS-McP" secondAttribute="bottom" id="Beh-LF-TIO"/>
                             <constraint firstItem="Z0T-jC-mpz" firstAttribute="trailing" secondItem="QoX-Q6-gN7" secondAttribute="trailing" id="EKf-Pe-nYW"/>
+                            <constraint firstItem="67c-UN-ySI" firstAttribute="leading" secondItem="QoX-Q6-gN7" secondAttribute="leading" id="JbE-J9-AAQ"/>
                             <constraint firstItem="1lj-qx-icz" firstAttribute="leading" secondItem="4Gj-h6-ICh" secondAttribute="leading" id="MVt-So-Yv7"/>
                             <constraint firstItem="dx9-fS-McP" firstAttribute="top" secondItem="Z0T-jC-mpz" secondAttribute="bottom" id="NZi-cJ-vVH"/>
+                            <constraint firstItem="QoX-Q6-gN7" firstAttribute="bottom" secondItem="67c-UN-ySI" secondAttribute="bottom" id="TiS-XY-Vpd"/>
                             <constraint firstAttribute="trailing" secondItem="1lj-qx-icz" secondAttribute="trailing" id="cRx-bm-qq0"/>
                             <constraint firstItem="dx9-fS-McP" firstAttribute="leading" secondItem="QoX-Q6-gN7" secondAttribute="leading" id="dY2-Ag-aG7"/>
                             <constraint firstItem="Z0T-jC-mpz" firstAttribute="top" secondItem="QoX-Q6-gN7" secondAttribute="top" id="fie-JY-xe0"/>
                             <constraint firstItem="Z0T-jC-mpz" firstAttribute="top" secondItem="1lj-qx-icz" secondAttribute="bottom" id="g9p-Nf-wFJ"/>
                             <constraint firstItem="Z0T-jC-mpz" firstAttribute="leading" secondItem="QoX-Q6-gN7" secondAttribute="leading" id="uZZ-jw-4BC"/>
+                            <constraint firstItem="QoX-Q6-gN7" firstAttribute="trailing" secondItem="67c-UN-ySI" secondAttribute="trailing" id="z6D-iZ-gcd"/>
                             <constraint firstItem="QoX-Q6-gN7" firstAttribute="trailing" secondItem="dx9-fS-McP" secondAttribute="trailing" id="zyK-Hy-62b"/>
                         </constraints>
                     </view>
@@ -134,6 +175,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="color" width="256" height="256"/>
+        <image name="erase" width="256" height="256"/>
+        <image name="size" width="256" height="256"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
