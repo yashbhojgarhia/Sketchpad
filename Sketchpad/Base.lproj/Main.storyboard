@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--All Pictures Collection View Controller-->
+        <!--Sketchpad-->
         <scene sceneID="v0r-gg-UQy">
             <objects>
                 <collectionViewController id="IpS-b4-UlI" customClass="AllPicturesCollectionViewController" customModule="Sketchpad" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,13 +19,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pmm-Dn-Gav">
                             <size key="itemSize" width="100" height="120"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="0.0" height="10"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PictureCell" id="esl-LI-eWy" customClass="PictureCell" customModule="Sketchpad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="153" height="159"/>
+                                <rect key="frame" x="0.0" y="10" width="153" height="159"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9wB-ZW-qNW">
                                     <rect key="frame" x="0.0" y="0.0" width="153" height="159"/>
@@ -65,37 +65,73 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bDX-1g-Wtj">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="10"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="IpS-b4-UlI" id="49g-Cu-rht"/>
                             <outlet property="delegate" destination="IpS-b4-UlI" id="YFu-Go-mfp"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="e2x-tE-yen">
+                    <navigationItem key="navigationItem" title="Sketchpad" id="e2x-tE-yen">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="zPK-y4-m6e"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="5Hb-OJ-GaT">
                             <connections>
                                 <segue destination="63m-BR-zoA" kind="presentation" id="oHY-f7-9Rs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="2p0-O1-uvJ" kind="show" identifier="viewDetail" id="2V6-w8-NaS"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0nP-jR-sJx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="875.36231884057975" y="66.964285714285708"/>
         </scene>
-        <!--View Controller-->
+        <!--Title-->
         <scene sceneID="QEd-bZ-Vuy">
             <objects>
-                <viewController id="2p0-O1-uvJ" sceneMemberID="viewController">
+                <viewController id="2p0-O1-uvJ" customClass="DetailViewController" customModule="Sketchpad" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Ie-Bk-SBY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cro-Mq-AIJ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="aM2-bw-0O5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cro-Mq-AIJ" firstAttribute="leading" secondItem="aM2-bw-0O5" secondAttribute="leading" id="MU0-Fi-Zwf"/>
+                            <constraint firstItem="cro-Mq-AIJ" firstAttribute="top" secondItem="aM2-bw-0O5" secondAttribute="top" id="TJF-OH-WvN"/>
+                            <constraint firstItem="aM2-bw-0O5" firstAttribute="trailing" secondItem="cro-Mq-AIJ" secondAttribute="trailing" id="a9D-0g-PAz"/>
+                            <constraint firstItem="aM2-bw-0O5" firstAttribute="bottom" secondItem="cro-Mq-AIJ" secondAttribute="bottom" id="cdf-DP-gyj"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="1sD-QZ-HD2">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="trash" id="kat-Ll-MFk">
+                                <connections>
+                                    <action selector="deleteTapped:" destination="2p0-O1-uvJ" id="YmH-Gp-4NB"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="action" id="YbW-Mm-Vgb">
+                                <connections>
+                                    <action selector="shareTapped:" destination="2p0-O1-uvJ" id="Oxw-Xj-SAv"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="cro-Mq-AIJ" id="dhF-5f-jg2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NWD-gx-fXF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="875" y="746"/>
+            <point key="canvasLocation" x="875" y="846"/>
         </scene>
         <!--Drawing View Controller-->
         <scene sceneID="vGd-Ga-qZV">
