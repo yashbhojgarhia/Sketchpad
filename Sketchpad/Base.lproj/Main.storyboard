@@ -9,28 +9,60 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Collection View Controller-->
+        <!--All Pictures Collection View Controller-->
         <scene sceneID="v0r-gg-UQy">
             <objects>
-                <collectionViewController id="IpS-b4-UlI" sceneMemberID="viewController">
+                <collectionViewController id="IpS-b4-UlI" customClass="AllPicturesCollectionViewController" customModule="Sketchpad" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Ida-Om-Ser">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pmm-Dn-Gav">
-                            <size key="itemSize" width="128" height="128"/>
+                            <size key="itemSize" width="100" height="120"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="esl-LI-eWy">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PictureCell" id="esl-LI-eWy" customClass="PictureCell" customModule="Sketchpad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="153" height="159"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9wB-ZW-qNW">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="153" height="159"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ac8-kP-Aa5">
+                                            <rect key="frame" x="0.0" y="139" width="153" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="Xmn-GC-Ayv"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7DE-GG-csT">
+                                            <rect key="frame" x="0.0" y="0.0" width="153" height="139"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="4ed-Ui-f09"/>
+                                                <constraint firstAttribute="height" constant="100" id="h2h-s0-c50"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="7DE-GG-csT" firstAttribute="leading" secondItem="9wB-ZW-qNW" secondAttribute="leading" id="09U-1B-kw1"/>
+                                        <constraint firstAttribute="trailing" secondItem="7DE-GG-csT" secondAttribute="trailing" id="5b9-Nm-JX3"/>
+                                        <constraint firstItem="Ac8-kP-Aa5" firstAttribute="top" secondItem="7DE-GG-csT" secondAttribute="bottom" id="AbJ-9Y-Cjj"/>
+                                        <constraint firstItem="Ac8-kP-Aa5" firstAttribute="leading" secondItem="9wB-ZW-qNW" secondAttribute="leading" id="XyF-gm-qXv"/>
+                                        <constraint firstItem="7DE-GG-csT" firstAttribute="top" secondItem="9wB-ZW-qNW" secondAttribute="top" id="ZL0-cm-2N1"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ac8-kP-Aa5" secondAttribute="trailing" id="Zap-0O-Uj0"/>
+                                        <constraint firstAttribute="bottom" secondItem="Ac8-kP-Aa5" secondAttribute="bottom" id="gsa-Fu-N6g"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
+                                <size key="customSize" width="153" height="159"/>
+                                <connections>
+                                    <outlet property="imageView" destination="7DE-GG-csT" id="R3r-bt-Nme"/>
+                                    <outlet property="nameLabel" destination="Ac8-kP-Aa5" id="QJD-ZH-LRe"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -68,7 +100,7 @@
         <!--Drawing View Controller-->
         <scene sceneID="vGd-Ga-qZV">
             <objects>
-                <viewController modalPresentationStyle="overCurrentContext" id="63m-BR-zoA" customClass="DrawingViewController" customModule="Sketchpad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="currentContext" id="63m-BR-zoA" customClass="DrawingViewController" customModule="Sketchpad" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Gj-h6-ICh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,7 +111,18 @@
                                     <constraint firstAttribute="height" constant="44" id="Uka-px-tbe"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Title" id="fYg-5d-6oP"/>
+                                    <navigationItem title="New Picture" id="fYg-5d-6oP">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="KRB-9f-bhx">
+                                            <connections>
+                                                <action selector="saveTapped:" destination="63m-BR-zoA" id="Hbg-eT-koR"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="cQQ-Bi-NlG">
+                                            <connections>
+                                                <action selector="deleteTapped:" destination="63m-BR-zoA" id="T9W-fn-0Hm"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1lj-qx-icz">
@@ -149,6 +192,7 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="dx9-fS-McP" id="tki-qs-hQS"/>
+                        <outlet property="stackView" destination="67c-UN-ySI" id="IDE-Zf-95c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dLb-G2-mKe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

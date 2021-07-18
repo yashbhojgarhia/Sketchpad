@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		14A84B78C300597EBF3590C4 /* Pods_Sketchpad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0538BC82E59F0D5C7C1BC4 /* Pods_Sketchpad.framework */; };
+		470B92C826A44A340030A5B3 /* AllPicturesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470B92C726A44A330030A5B3 /* AllPicturesCollectionViewController.swift */; };
 		4755495326A1972A00EB02EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4755495226A1972A00EB02EF /* AppDelegate.swift */; };
 		4755495526A1972A00EB02EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4755495426A1972A00EB02EF /* SceneDelegate.swift */; };
 		4755495A26A1972A00EB02EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4755495826A1972A00EB02EF /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		470B92C726A44A330030A5B3 /* AllPicturesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPicturesCollectionViewController.swift; sourceTree = "<group>"; };
 		4755494F26A1972A00EB02EF /* Sketchpad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sketchpad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4755495226A1972A00EB02EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4755495426A1972A00EB02EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +52,6 @@
 				55429C3121EE471DF4AC52E5 /* Pods-Sketchpad.debug.xcconfig */,
 				50EBD7234C4572B70AE6E489 /* Pods-Sketchpad.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,6 +84,7 @@
 				4755496026A1972C00EB02EF /* LaunchScreen.storyboard */,
 				4755496326A1972C00EB02EF /* Info.plist */,
 				4755495B26A1972A00EB02EF /* Sketchpad.xcdatamodeld */,
+				470B92C726A44A330030A5B3 /* AllPicturesCollectionViewController.swift */,
 			);
 			path = Sketchpad;
 			sourceTree = "<group>";
@@ -212,6 +214,7 @@
 				4755495D26A1972A00EB02EF /* Sketchpad.xcdatamodeld in Sources */,
 				4755496A26A1A01900EB02EF /* DrawingViewController.swift in Sources */,
 				4755495326A1972A00EB02EF /* AppDelegate.swift in Sources */,
+				470B92C826A44A340030A5B3 /* AllPicturesCollectionViewController.swift in Sources */,
 				4755495526A1972A00EB02EF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
